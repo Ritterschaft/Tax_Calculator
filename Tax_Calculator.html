@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Tax Calculator</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <p id="info">
+            
+        </p>
+        <h1 id="title">
+            Sales Tax Calculator
+        </h1>
+    </header>
+    <!-- form -->
+    <form action="#">
+        <p>
+            Enter Subtotal and Tax Rate and click the Calculate button to show the sales tax amount and the total.Click the clear button to clear out all form fields.Tax rate should be a percentage but do not enter a % sign in the tax rate box.
+        </p>
+        Subtotal:<input type="text" id="subt"><br>
+        Tax Rate: <input type="text" id="taxRate"><br>
+        Sales Tax: <input type="text" id="salesTax" disabled><br>
+        Total: <input type="text" id="total" disabled><br>
+        <button id="subbut">Calculate Tax and Total</button>&nbsp;&nbsp;
+        <button id="resbut">Clear</button>
+    </form>
+    <!-- image -->
+    <img src="winniepoo.png" alt="">
+    <!-- footer -->
+    <footer>
+        &copy;Jim Jin | https://github.com/Ritterschaft
+    </footer>
+</body>
+
+<script>
+
+    // all code to get data and calculate results
+    document.getElementById("subbut").addEventListener('click',function(ev)
+    {   ev.preventDefault(); //to prevent button`s submit feature by default
+        
+        let subtVal = document.getElementById("subt").value;
+        let taxRateVal = document.getElementById("taxRate").value;      
+        if(subtVal < 0 || subtVal == 0 || subtVal == "" || isNaN(subtVal)) {
+            alert("invalid subtotal value!");
+            clear(ev);
+        }
+        else {
+            if (taxRateVal > 0 && taxRateVal <= 20 && taxRateVal != "" && taxRateVal != NaN) {
+            let salesTaxVal = subtVal * (taxRateVal / 100)
+            let total = parseFloat(subtVal) + salesTaxVal;  
+            document.getElementById("salesTax").value = salesTaxVal.toFixed(2);
+            document.getElementById("total").value = total;   
+            console.log('Sales tax is $' + salesTaxVal.toFixed(2));
+            console.log('Total value is $' + total);
+        }else {
+            alert("The tax rate value must be a number greater than 0 and less than or equal to 20. ");
+            alert("do not enter a % sign in the tax rate box.");
+        }
+        }
+    
+    }); 
+    function clear(ev) {
+        // all code to clear data from elements 
+        ev.preventDefault();
+        document.getElementById("subt").value = "";
+        document.getElementById("taxRate").value = "";
+        document.getElementById("salesTax").value = "";
+        document.getElementById("total").value = ""; 
+        console.log("----------------------");
+        console.log("RESET COMPLETE.");
+    } 
+
+    document.getElementById("resbut").addEventListener('click',clear, {
+        
+        // clear function is referenced here.
+    });
+    
+    document.getElementById("resbut").addEventListener('click',function(){
+        // code to reset 
+        console.log("RE-FOCUS ACTIVATES.");
+        document.getElementById("subt").focus();
+    });
+
+    document.addEventListener('DOMContentLoaded', function(){
+        // code to setup
+        console.log("DOM IS READY.");
+        document.getElementById("subt").focus();
+    });
+</script>
+
+</html>

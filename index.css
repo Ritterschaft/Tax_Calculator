@@ -1,0 +1,90 @@
+body {
+    padding: 5px;
+    background-color: #282c34;
+}
+
+/* header  */
+header {
+    border: 2px solid black;
+    text-align: center;
+    background-color: bisque;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+#info {
+    font-size: 18px;
+}
+
+/* form section */
+form {
+    border: 2px solid black;
+    padding: 15px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: darkgray;
+    max-width: 800px;
+    height: 500px;
+    margin: 0 auto;
+    font-size: larger;
+    /* min-width: 400px; */
+}
+#subt {
+    margin-left: 28px;
+}
+#taxRate {
+    margin-left: 20px;
+}
+#salesTax {
+    margin-left: 15px;
+    
+}
+#total {
+    margin-left: 48px;
+}
+form input {
+    width: 400px;
+    height: 20px;
+    outline: none;
+    margin-bottom: 20px;
+}
+form button {
+    height: 30px;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+/* img */
+img {
+    display: block;
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 300px;
+    height: 300px;
+}
+
+/* footer */
+footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 20px;
+    color: aliceblue;
+}
+
+@media screen and (max-width:800px) {
+    form {
+        max-width: 500px;
+        color: azure;
+    }
+
+    form input {
+        max-width: 200px;
+    }
+}
+
+/* 
+html structure __ ok
+css styles__ ok
+responsive__ ok
+*/
